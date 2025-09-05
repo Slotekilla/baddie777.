@@ -1,0 +1,16 @@
+# Robots.txt for $BADDIE777
+User-agent: *
+Allow: /
+Allow: /gallery
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.avif
+
+# Image sitemap
+Sitemap: https://yourdomain.com/image-sitemap.xml
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Crawl delay for images
+Crawl-delay: 1
