@@ -132,31 +132,31 @@ function App() {
 
       {/* Gallery Preview */}
       <section className="py-20 bg-gradient-to-b from-black to-gray-900">
-        <div className="max-w-6xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-black text-center mb-16 glitch-text-small">
             CHAOS GALLERY
           </h2>
           
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {galleryImages.map((artwork, index) => (
-              <div key={index} className="art-card group w-full">
-                <div className="w-full bg-gray-900 rounded-lg p-4 border border-gray-700 hover:border-green-400 transition-colors duration-300">
+              <div key={index} className="bg-gray-900 rounded-lg p-4 border border-gray-700 hover:border-green-400 transition-colors duration-300">
+                <div className="mb-4">
                   <OptimizedImage
                     src={artwork.src}
                     alt={artwork.alt}
                     title={artwork.title}
-                    className="w-full h-auto block mx-auto"
+                    className="w-full h-auto max-w-full"
                     priority={true}
                     loading="eager"
                   />
-                  <div className="mt-4 text-center">
-                    <h3 className="text-2xl font-black text-red-400 glitch-text-small mb-2">
-                      {artwork.title.split(' - ')[0]}
-                    </h3>
-                    <p className="text-gray-400 text-sm">
-                      {artwork.alt}
-                    </p>
-                  </div>
+                </div>
+                <div className="text-center">
+                  <h3 className="text-xl font-black text-red-400 glitch-text-small mb-2">
+                    {artwork.title.split(' - ')[0]}
+                  </h3>
+                  <p className="text-gray-400 text-xs">
+                    {artwork.alt}
+                  </p>
                 </div>
               </div>
             ))}

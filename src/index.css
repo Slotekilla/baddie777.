@@ -161,18 +161,6 @@ body {
     0 0 40px rgba(34, 197, 94, 0.4);
 }
 
-/* Art Cards */
-.art-card {
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.art-card:hover {
-  transform: translateY(-4px);
-}
-
-
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
