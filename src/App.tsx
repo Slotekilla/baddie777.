@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Users, Coins, Zap } from 'lucide-react';
+import { TrendingUp, Users, Coins, Zap, Twitter, MessageCircle } from 'lucide-react';
 import { OptimizedImage } from './components/OptimizedImage';
 import { generateImageStructuredData } from './utils/imageOptimization';
 
@@ -105,6 +105,28 @@ function App() {
           >
             TRADE $BADDIE777
           </a>
+          
+          {/* Social Links */}
+          <div className="mt-8 flex justify-center space-x-6">
+            <a 
+              href="https://x.com/MajaBaddie777" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-black/60 hover:bg-black/80 text-white px-6 py-3 rounded-lg border border-gray-600 hover:border-green-400 transition-all duration-300"
+            >
+              <Twitter className="w-5 h-5" />
+              <span className="font-bold">Follow on X</span>
+            </a>
+            <a 
+              href="https://farcaster.xyz/baddie777" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 bg-black/60 hover:bg-black/80 text-white px-6 py-3 rounded-lg border border-gray-600 hover:border-green-400 transition-all duration-300"
+            >
+              <MessageCircle className="w-5 h-5" />
+              <span className="font-bold">Farcaster</span>
+            </a>
+          </div>
         </div>
       </section>
 
