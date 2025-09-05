@@ -97,9 +97,14 @@ function App() {
           </div>
           
           {/* CTA Button */}
-          <button className="pulse-button bg-green-500 hover:bg-green-400 text-black font-black text-xl px-12 py-4 rounded-lg transition-all duration-300 transform hover:scale-105">
+          <a 
+            href="https://zora.co/@baddie777" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block pulse-button bg-green-500 hover:bg-green-400 text-black font-black text-xl px-12 py-4 rounded-lg transition-all duration-300 transform hover:scale-105"
+          >
             TRADE $BADDIE777
-          </button>
+          </a>
         </div>
       </section>
 
@@ -141,8 +146,9 @@ function App() {
                     alt={artwork.alt}
                     title={artwork.title}
                     className="w-full h-full"
-                    priority={index < 2} // Prioritize first 2 images
+                    priority={index < 3} // Prioritize first 3 images (top row)
                     sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                    loading={index < 3 ? "eager" : "lazy"}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   <div className="absolute inset-0 bg-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -200,12 +206,17 @@ function App() {
             READY TO JOIN THE CHAOS?
           </h3>
           
-          <button className="pulse-button bg-green-500 hover:bg-green-400 text-black font-black text-2xl px-16 py-6 rounded-lg transition-all duration-300 transform hover:scale-105">
+          <a 
+            href="https://zora.co/@baddie777" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block pulse-button bg-green-500 hover:bg-green-400 text-black font-black text-2xl px-16 py-6 rounded-lg transition-all duration-300 transform hover:scale-105"
+          >
             <div className="flex items-center space-x-3">
               <Coins className="w-8 h-8" />
               <span>Buy $BADDIE777 on Zora</span>
             </div>
-          </button>
+          </a>
         </div>
       </section>
 

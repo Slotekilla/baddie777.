@@ -7,6 +7,7 @@ interface OptimizedImageProps {
   className?: string;
   sizes?: string;
   priority?: boolean;
+  loading?: 'eager' | 'lazy';
   onLoad?: () => void;
   onError?: (error: Event) => void;
 }
@@ -18,6 +19,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   className = '',
   sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
   priority = false,
+  loading = 'lazy',
   onLoad,
   onError
 }) => {
@@ -28,7 +30,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
   // Intersection Observer for lazy loading
   useEffect(() => {
-    if (priority || isInView) return;
+    if (priority || loading === 'eager' || isInView) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -38,7 +40,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
         }
       },
       {
-        rootMargin: '50px 0px', // Start loading 50px before image enters viewport
+        rootMargin: '100px 0px', // Start loading 100px before image enters viewport
         threshold: 0.1
       }
     );
@@ -48,7 +50,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
     }
 
     return () => observer.disconnect();
-  }, [priority, isInView]);
+  }, [priority, loading, isInView]);
 
   // Generate responsive image sources
   const generateSrcSet = (baseSrc: string) => {
@@ -87,7 +89,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
       )}
 
       {/* Optimized image */}
-      {(isInView || priority) && (
+      {(isInView || priority || loading === 'eager') && (
         <img
           src={src}
           alt={alt}
@@ -95,7 +97,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
           className={`w-full h-full object-contain transition-opacity duration-300 ${
             isLoaded ? 'opacity-100' : 'opacity-0'
           }`}
-          loading={priority ? 'eager' : 'lazy'}
+          loading={loading}
           decoding="async"
           onLoad={handleLoad}
           onError={handleError}
