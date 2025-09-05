@@ -137,27 +137,25 @@ function App() {
             CHAOS GALLERY
           </h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="space-y-8">
             {galleryImages.map((artwork, index) => (
-              <div key={index} className="art-card group">
-                <div className="rounded-lg overflow-hidden relative bg-gray-800 flex items-center justify-center">
+              <div key={index} className="art-card group w-full">
+                <div className="w-full bg-gray-900 rounded-lg p-4 border border-gray-700 hover:border-green-400 transition-colors duration-300">
                   <OptimizedImage
                     src={artwork.src}
                     alt={artwork.alt}
                     title={artwork.title}
-                    className="w-full h-auto max-w-full"
+                    className="w-full h-auto block mx-auto"
                     priority={true}
                     loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
-                  <div className="absolute inset-0 bg-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="text-2xl font-black text-red-400 glitch-text-small">
-                      {artwork.title.split(' - ')[0]} {/* Extract just the artwork name */}
-                    </div>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <Zap className="w-6 h-6 text-yellow-400" />
+                  <div className="mt-4 text-center">
+                    <h3 className="text-2xl font-black text-red-400 glitch-text-small mb-2">
+                      {artwork.title.split(' - ')[0]}
+                    </h3>
+                    <p className="text-gray-400 text-sm">
+                      {artwork.alt}
+                    </p>
                   </div>
                 </div>
               </div>
