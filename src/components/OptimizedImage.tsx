@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface OptimizedImageProps {
   src: string;
@@ -7,8 +7,6 @@ interface OptimizedImageProps {
   className?: string;
   priority?: boolean;
   loading?: 'eager' | 'lazy';
-  onLoad?: () => void;
-  onError?: (error: Event) => void;
 }
 
 export const OptimizedImage: React.FC<OptimizedImageProps> = ({
@@ -16,48 +14,15 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   alt,
   title,
   className = '',
-  loading = 'lazy',
-  onLoad,
-  onError
+  loading = 'lazy'
 }) => {
-  const [hasError, setHasError] = useState(false);
-
-  const handleLoad = () => {
-    onLoad?.();
-  };
-
-  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    setHasError(true);
-    onError?.(e.nativeEvent);
-  };
-
-  if (hasError) {
-    return (
-      <div className="w-full h-48 bg-gray-800 flex items-center justify-center rounded">
-        <div className="text-gray-400 text-center">
-          <div className="text-2xl mb-2">⚠️</div>
-          <div className="text-sm">Image failed to load</div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <img
       src={src}
       alt={alt}
       title={title}
-      className={className}
+      className={`w-full h-auto ${className}`}
       loading={loading}
-      decoding="async"
-      onLoad={handleLoad}
-      onError={handleError}
-      style={{
-        display: 'block',
-        width: '100%',
-        height: 'auto',
-        maxWidth: '100%'
-      }}
     />
   );
 };
