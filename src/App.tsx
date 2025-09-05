@@ -140,12 +140,12 @@ function App() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {galleryImages.map((artwork, index) => (
               <div key={index} className="art-card group">
-                <div className="aspect-square rounded-lg overflow-hidden relative bg-gray-800">
+                <div className="rounded-lg overflow-hidden relative bg-gray-800 min-h-[300px] flex items-center justify-center">
                   <OptimizedImage
                     src={artwork.src}
                     alt={artwork.alt}
                     title={artwork.title}
-                    className="w-full h-full"
+                    className="max-w-full max-h-full w-auto h-auto"
                     priority={true}
                     loading="eager"
                   />
