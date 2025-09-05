@@ -7,37 +7,37 @@ function App() {
   // SEO-optimized image metadata
   const galleryImages = [
     {
-      src: "https://images.pexels.com/photos/1742370/pexels-photo-1742370.jpeg?auto=compress&cs=tinysrgb&w=800",
+      src: "/blasted.png",
       alt: "Baddie777 digital art BLASTED - minimalist cream poster design with chaotic elements",
       title: "BLASTED - $BADDIE777 Digital Art Collection",
       keywords: ["digital-art", "nft", "crypto", "blasted", "minimalist"]
     },
     {
-      src: "https://images.pexels.com/photos/3137078/pexels-photo-3137078.jpeg?auto=compress&cs=tinysrgb&w=800",
+      src: "/melted.png",
       alt: "Baddie777 MELTED artwork - elegant cream wedding bar poster transformed into crypto art",
       title: "MELTED - Chaos Into Gold Digital Art by Baddie777",
       keywords: ["melted", "wedding", "elegant", "transformation"]
     },
     {
-      src: "https://images.pexels.com/photos/2693208/pexels-photo-2693208.jpeg?auto=compress&cs=tinysrgb&w=800",
+      src: "/hyped.png",
       alt: "HYPED crypto art by Baddie777 - cream minimalist wedding design meets digital chaos",
       title: "HYPED - $BADDIE777 Collectible Digital Art",
       keywords: ["hyped", "crypto", "collectible", "wedding-design"]
     },
     {
-      src: "https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=800",
+      src: "/stoned.png",
       alt: "STONED digital artwork - Baddie777 transforms elegant wedding poster into crypto collectible",
       title: "STONED - Digital Alchemy by $BADDIE777",
       keywords: ["stoned", "alchemy", "wedding-poster", "transformation"]
     },
     {
-      src: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=800",
+      src: "/wasted.png",
       alt: "WRECKED art piece by Baddie777 - minimalist wedding bar poster reimagined as digital chaos",
       title: "WASTED - Chaos Collection $BADDIE777",
       keywords: ["wrecked", "chaos", "bar-poster", "reimagined"]
     },
     {
-      src: "https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800",
+      src: "/exposed.png",
       alt: "EXPOSED digital art - Baddie777 exposes the beauty in wedding design chaos",
       title: "EXPOSED - $BADDIE777 Digital Art Revelation",
       keywords: ["exposed", "revelation", "beauty", "design-chaos"]

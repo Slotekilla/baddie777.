@@ -21,8 +21,19 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
       src={src}
       alt={alt}
       title={title}
-      className={`w-full h-auto ${className}`}
+      className={className}
       loading={loading}
+      style={{
+        width: '100%',
+        height: 'auto',
+        maxWidth: '100%',
+        display: 'block'
+      }}
+      onError={(e) => {
+        console.error('Image failed to load:', src);
+        e.currentTarget.style.border = '2px solid red';
+        e.currentTarget.style.minHeight = '200px';
+      }}
     />
   );
 };
