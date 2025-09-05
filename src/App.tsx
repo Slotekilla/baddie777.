@@ -140,17 +140,17 @@ function App() {
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             {galleryImages.map((artwork, index) => (
               <div key={index} className="art-card group">
-                <div className="rounded-lg overflow-hidden relative bg-gray-800">
+                <div className="rounded-lg overflow-hidden relative bg-gray-800 flex items-center justify-center">
                   <OptimizedImage
                     src={artwork.src}
                     alt={artwork.alt}
                     title={artwork.title}
-                    className="w-full h-auto"
+                    className="w-full h-auto max-w-full"
                     priority={true}
                     loading="eager"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                  <div className="absolute inset-0 bg-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                   <div className="absolute bottom-4 left-4 right-4">
                     <div className="text-2xl font-black text-red-400 glitch-text-small">
                       {artwork.title.split(' - ')[0]} {/* Extract just the artwork name */}

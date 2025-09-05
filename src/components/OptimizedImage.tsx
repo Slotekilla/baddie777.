@@ -42,7 +42,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   };
 
   return (
-    <div className={`relative overflow-hidden ${className}`} ref={imgRef}>
+    <div className="relative" ref={imgRef}>
       {/* Error fallback */}
       {hasError && (
         <div className="absolute inset-0 bg-gray-800 flex items-center justify-center">
@@ -58,13 +58,14 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
         src={src}
         alt={alt}
         title={title}
-        className="w-full h-auto object-contain"
+        className={`object-contain ${className}`}
         loading={loading}
         decoding="async"
         onLoad={handleLoad}
         onError={handleError}
         // SEO attributes
         itemProp="image"
+        style={{ maxWidth: '100%', height: 'auto' }}
       />
     </div>
   );
