@@ -4,6 +4,32 @@ import { OptimizedImage } from './components/OptimizedImage';
 import { generateImageStructuredData } from './utils/imageOptimization';
 
 function App() {
+  const [marketCap, setMarketCap] = React.useState<string>('$8,808+');
+
+  // Live market cap fetcher
+  React.useEffect(() => {
+    const chain = "base";
+    const pairAddress = "0x7ae6f233002d7a57e8c039be3f9bffa1d62b249ae0e5d8193a3eebb45ee9430a";
+    const url = `https://api.dexscreener.com/latest/dex/pairs/${chain}/${pairAddress}`;
+
+    async function fetchMarketCap() {
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        const mc = json.pairs[0]?.marketCap ?? json.pairs[0]?.fdv ?? null;
+        setMarketCap(mc !== null ? "$" + Number(mc).toLocaleString() : "$8,808+");
+      } catch (err) {
+        console.error("Error fetching market cap:", err);
+        setMarketCap("$8,808+");
+      }
+    }
+
+    fetchMarketCap();
+    const interval = setInterval(fetchMarketCap, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   // SEO-optimized image metadata
   const galleryImages = [
     {
@@ -93,7 +119,7 @@ function App() {
           {/* Market Cap Display */}
           <div className="mb-8 p-6 bg-black/60 rounded-lg border border-green-400 backdrop-blur-sm">
             <div className="text-green-400 text-sm uppercase tracking-wide mb-2">Current Market Cap</div>
-            <div className="text-4xl font-black text-green-400 neon-glow">$8,808+</div>
+            <div className="text-4xl font-black text-green-400 neon-glow">{marketCap}</div>
           </div>
           
           {/* CTA Button */}
@@ -207,7 +233,7 @@ function App() {
               </div>
               <div className="flex items-center space-x-2">
                 <TrendingUp className="w-6 h-6 text-green-400" />
-                <span>$8,808+ Market Cap</span>
+               <span>{marketCap} Market Cap</span>
               </div>
               <div className="text-green-400">& Growing</div>
             </div>
