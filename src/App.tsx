@@ -146,9 +146,8 @@ function App() {
                     alt={artwork.alt}
                     title={artwork.title}
                     className="w-full h-full"
-                    priority={index < 3} // Prioritize first 3 images (top row)
-                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                    loading={index < 3 ? "eager" : "lazy"}
+                    priority={true}
+                    loading="eager"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                   <div className="absolute inset-0 bg-green-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

@@ -17,7 +17,6 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
   alt,
   title,
   className = '',
-  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
   priority = false,
   loading = 'lazy',
   onLoad,
@@ -25,32 +24,7 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLImageElement>(null);
-
-  // Intersection Observer for lazy loading
-  useEffect(() => {
-    if (priority || loading === 'eager' || isInView) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      {
-        rootMargin: '100px 0px', // Start loading 100px before image enters viewport
-        threshold: 0.1
-      }
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [priority, loading, isInView]);
 
   // Generate responsive image sources
   const generateSrcSet = (baseSrc: string) => {
@@ -89,22 +63,20 @@ export const OptimizedImage: React.FC<OptimizedImageProps> = ({
       )}
 
       {/* Optimized image */}
-      {(isInView || priority || loading === 'eager') && (
-        <img
-          src={src}
-          alt={alt}
-          title={title}
-          className={`w-full h-full object-contain transition-opacity duration-300 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          loading={loading}
-          decoding="async"
-          onLoad={handleLoad}
-          onError={handleError}
-          // SEO attributes
-          itemProp="image"
-        />
-      )}
+      <img
+        src={src}
+        alt={alt}
+        title={title}
+        className={`w-full h-full object-contain transition-opacity duration-300 ${
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        loading={loading}
+        decoding="async"
+        onLoad={handleLoad}
+        onError={handleError}
+        // SEO attributes
+        itemProp="image"
+      />
     </div>
   );
 };
