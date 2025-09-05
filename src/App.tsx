@@ -132,7 +132,7 @@ function App() {
 
       {/* DexScreener Chart */}
       <section className="py-10 bg-gradient-to-b from-gray-900 to-black">
-        <div className="max-w-3xl mx-auto px-4">
+        <div className="max-w-2xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-black text-center mb-8 glitch-text-small">
             LIVE CHART
           </h2>
