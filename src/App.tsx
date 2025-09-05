@@ -140,13 +140,13 @@ function App() {
           <div className="bg-black/60 rounded-lg border border-green-400 p-4 backdrop-blur-sm">
             <style dangerouslySetInnerHTML={{
               __html: `
-                #dexscreener-embed{position:relative;width:100%;padding-bottom:62.5%;}
-                @media(min-width:1400px){#dexscreener-embed{padding-bottom:32.5%;}}
+                #dexscreener-embed{position:relative;width:100%;padding-bottom:125%;}
+                @media(min-width:1400px){#dexscreener-embed{padding-bottom:65%;}}
                 #dexscreener-embed iframe{position:absolute;width:100%;height:100%;top:0;left:0;border:0;}
               `
             }} />
             <div id="dexscreener-embed">
-              <iframe src="https://dexscreener.com/base/0x7ae6f233002d7a57e8c039be3f9bffa1d62b249ae0e5d8193a3eebb45ee9430a?embed=1&loadChartSettings=0&trades=0&tabs=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
+              <iframe src="https://dexscreener.com/base/0x7ae6f233002d7a57e8c039be3f9bffa1d62b249ae0e5d8193a3eebb45ee9430a?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
             </div>
           </div>
         </div>
