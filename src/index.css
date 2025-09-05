@@ -166,7 +166,6 @@ body {
   position: relative;
   cursor: pointer;
   transition: transform 0.3s ease;
-  min-height: 200px;
   display: flex;
   align-items: stretch;
 }
@@ -184,7 +183,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 200px;
 }
 
 .art-card img {
