@@ -154,9 +154,6 @@ function App() {
                   <h3 className="text-xl font-black text-red-400 glitch-text-small mb-2">
                     {artwork.title.split(' - ')[0]}
                   </h3>
-                  <p className="text-gray-400 text-xs">
-                    {artwork.alt}
-                  </p>
                 </div>
               </div>
             ))}
