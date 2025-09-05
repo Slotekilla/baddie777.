@@ -146,7 +146,7 @@ function App() {
               `
             }} />
             <div id="dexscreener-embed">
-              <iframe src="https://dexscreener.com/base/0x7ae6f233002d7a57e8c039be3f9bffa1d62b249ae0e5d8193a3eebb45ee9430a?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
+              <iframe src="https://dexscreener.com/base/0x7ae6f233002d7a57e8c039be3f9bffa1d62b249ae0e5d8193a3eebb45ee9430a?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=1&chartType=marketCap&interval=1"></iframe>
             </div>
           </div>
         </div>
